@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Menu, X, Search } from "lucide-react"
 import { useAuth } from "@/hooks/useAuth"
-import Link from "next/link"
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -43,7 +42,7 @@ export function Navigation() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
+          <a href="/" className="flex items-center space-x-2">
             <motion.div
               whileHover={{ scale: 1.05, rotate: 5 }}
               transition={{ type: "spring", stiffness: 400 }}
@@ -52,19 +51,19 @@ export function Navigation() {
               <span className="text-black font-bold text-xl">I</span>
             </motion.div>
             <span className="text-white font-bold text-xl">InkAI Studio</span>
-          </Link>
+          </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <Link
+              <a
                 key={item.href}
                 href={item.href}
                 className="text-gray-300 hover:text-[#00d4ff] transition-colors relative group"
               >
                 {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00d4ff] transition-all duration-300 group-hover:w-full" />
-              </Link>
+              </a>
             ))}
           </div>
 
@@ -87,16 +86,16 @@ export function Navigation() {
               </div>
             ) : (
               <div className="flex items-center space-x-4">
-                <Link href="/auth">
+                <a href="/auth">
                   <Button variant="ghost" className="text-gray-300 hover:text-[#00d4ff]">
                     Sign In
                   </Button>
-                </Link>
-                <Link href="/auth?mode=register">
+                </a>
+                <a href="/auth?mode=register">
                   <Button className="bg-gradient-to-r from-[#00d4ff] to-[#39ff14] hover:from-[#00a8cc] hover:to-[#2ecc11] text-black font-semibold">
                     Get Started
                   </Button>
-                </Link>
+                </a>
               </div>
             )}
           </div>
@@ -124,14 +123,14 @@ export function Navigation() {
             >
               <div className="p-4 space-y-4">
                 {navItems.map((item) => (
-                  <Link
+                  <a
                     key={item.href}
                     href={item.href}
                     className="block text-gray-300 hover:text-[#00d4ff] transition-colors py-2"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {item.label}
-                  </Link>
+                  </a>
                 ))}
                 
                 <div className="border-t border-gray-800 pt-4 space-y-4">
@@ -148,7 +147,7 @@ export function Navigation() {
                     </Button>
                   ) : (
                     <>
-                      <Link href="/auth" className="block">
+                      <a href="/auth" className="block">
                         <Button
                           variant="ghost"
                           className="w-full text-gray-300 hover:text-[#00d4ff]"
@@ -156,15 +155,15 @@ export function Navigation() {
                         >
                           Sign In
                         </Button>
-                      </Link>
-                      <Link href="/auth?mode=register" className="block">
+                      </a>
+                      <a href="/auth?mode=register" className="block">
                         <Button
                           className="w-full bg-gradient-to-r from-[#00d4ff] to-[#39ff14] hover:from-[#00a8cc] hover:to-[#2ecc11] text-black font-semibold"
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
                           Get Started
                         </Button>
-                      </Link>
+                      </a>
                     </>
                   )}
                 </div>
