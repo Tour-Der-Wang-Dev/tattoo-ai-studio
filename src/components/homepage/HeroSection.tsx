@@ -2,7 +2,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { motion, useAnimation } from "framer-motion"
+import { motion, useAnimation, Variants } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Play } from "lucide-react"
 import { TypewriterText } from "./TypewriterText"
@@ -16,7 +16,7 @@ export function HeroSection() {
     controls.start("visible")
   }, [controls])
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -27,12 +27,12 @@ export function HeroSection() {
     }
   }
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { y: 30, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.6, ease: "easeOut" }
+      transition: { duration: 0.6, type: "spring", stiffness: 100 }
     }
   }
 
